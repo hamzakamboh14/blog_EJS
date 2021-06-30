@@ -1,4 +1,5 @@
 const Blog = require('../models/blogs')
+var fs = require('fs');
 
 const blog_index = (req,res)=>{
     Blog.find().sort({createdAt: -1})
@@ -26,6 +27,10 @@ const blog_create_get = (req, res)=> {
 
 const blog_create_post = (req, res)=> {
     const blog = new Blog(req.body)
+    if(req.file){
+        blog.image = req.file.filename
+    }
+    
     blog.save()
     .then((result)=>{
         res.redirect('/')
@@ -37,6 +42,24 @@ const blog_create_post = (req, res)=> {
 
 const blog_delete = (req,res)=>{
     const id = req.params.id
+    let image_name = ''
+    Blog.findById(id)
+    .then((result)=>{
+        image_name = result.image
+        fs.unlink(`public/uploads/${image_name}`, function(err) {
+            if(err && err.code == 'ENOENT') {
+                console.info("File doesn't exist, won't remove it.");
+            } else if (err) {
+                console.error("Error occurred while trying to remove file");
+            } else {
+                console.info(`removed`);
+            }
+        });
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  
     Blog.findByIdAndDelete(id)
     .then((result)=>{
         res.redirect('/')
