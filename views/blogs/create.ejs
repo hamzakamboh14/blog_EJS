@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <div class="container">
+       <%- include('../partials/header') %>
+        <div class="form-content">
+            <% if(blogs) { %>
+            <form action="/blogs/update/<%= blogs._id %>" method="post">
+            <h3>Edit BLog</h3>
+                <label for="title">Title</label><br>
+                <input type="text" id="title" name="title" value="<%= blogs.title %>" required><br>
+                <label for="body">Body</label><br>
+                <textarea type="text" id="body" name="body" required><%= blogs.body %></textarea><br>
+                <button>Submit</button>
+            </form>
+            <% }else{ %>
+
+            <form action="/blogs" method="post">
+                <h3> Add New Blog</h3>
+                    <label for="title">Title</label><br>
+                    <input type="text" id="title" name="title" required><br>
+                    <label for="body">Body</label><br>
+                    <textarea type="text" id="body" name="body" required></textarea><br>
+                    <button>Submit</button>
+                </form>
+            <% }%>
+
+        </div>
+       <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>

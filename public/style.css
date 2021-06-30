@@ -1,0 +1,81 @@
+body{
+    margin: 0%;
+}
+.container{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    background: lightgray;
+}
+.brand{
+    padding: 10px;
+    margin-top: 20px !important;
+}
+.brand a{
+    text-decoration: none;
+    color: black;
+}
+.brand a:hover{
+    color: crimson;
+}
+.brand p:hover{
+    color: crimson;
+}
+.brand .subhead{
+    font-size: 15px;
+    margin-top: 0;
+}
+.nav{
+    margin-right: 30px;
+}
+.nav ul li{
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+.nav ul li a:hover{
+    color: crimson;
+}
+.content{
+    width: 100%;
+}
+.content a{
+    color: black;
+    text-decoration: none;
+}
+.content a:hover{
+    color: crimson;
+}
+.content h2{
+    margin-left: 10px;
+}
+
+.content p{
+    margin-left: 50px;
+}
+footer{
+    background: lightgray;
+    text-align: center;
+}
+.form-content form {
+    margin: 30px 30% 20px 30%;
+    padding: 50px 0 50px 0;
+    width: 40%;
+    text-align: center;
+    background: hsla(0, 88%, 34%, 0.26);
+}
+
+.form-content form input{
+    margin: 10px;
+}
+.form-content form button:hover{
+    color:crimson;
+    cursor: pointer;
+}
