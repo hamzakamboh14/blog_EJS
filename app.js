@@ -7,7 +7,7 @@ const app = new express()
 
 const dbURI = 'mongodb+srv://root:Root!123@nodejs.mfnnf.mongodb.net/My-Practice?retryWrites=true&w=majority'
 mongoose.connect(dbURI,{useNewUrlParser:true , useUnifiedTopology:true})
-.then((result)=>app.listen(3000))
+.then((result)=>app.listen(3001))
 .catch((err)=>{
     console.log(err)
 })
