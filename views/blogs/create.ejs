@@ -6,12 +6,13 @@
        <%- include('../partials/header') %>
         <div class="form-content">
             <% if(blogs) { %>
-            <form action="/blogs/update/<%= blogs._id %>" method="post">
+            <form action="/blogs/update/<%= blogs._id %>" method="post" enctype="multipart/form-data">
             <h3>Edit BLog</h3>
                 <label for="title">Title</label><br>
                 <input type="text" id="title" name="title" value="<%= blogs.title %>" required><br>
                 <label for="body">Body</label><br>
                 <textarea type="text" id="body" name="body" required><%= blogs.body %></textarea><br>
+                <input type="file" name="image" id="image"  required><br>
                 <button>Submit</button>
             </form>
             <% }else{ %>
